@@ -50,14 +50,15 @@ namespace NQueen_solver
          */
         public void FindSolution(bool[,] board, int x)
         {
+            if (x == N)
+            {
+                numberOfSolutions++;
+                printSolution(board);
+                return;
+            }
+
             for (int y = 0; y < N; y++)
             {
-                if (x == N)
-                {
-                    numberOfSolutions++;
-                    printSolution(board);
-                    return;
-                }
                 if (Allowed(board, x, y))
                 {
                     board[x, y] = true;
